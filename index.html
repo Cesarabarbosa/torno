@@ -2,22 +2,27 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Calculadora de Valor de Copo ou Xícara</title>
+    <title>Calculadoras</title>
     <style>
         html, body {
             height: 100%;
         }
         body {
             font-family: Arial, sans-serif;
-            font-size: 24px; /* Ajuste o tamanho da fonte conforme necessário */
+            font-size: 16px;
             display: flex;
             justify-content: center;
-            align-items: flex-start; /* Alterado para alinhar no topo */
+            align-items: center;
+            flex-direction: column; /* Alterado para alinhar verticalmente */
         }
         .container {
-            max-width: 500px;
+            max-width: 400px;
             padding: 20px;
             text-align: center;
+            border: 1px solid black;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px; /* Adicionado espaçamento entre as calculadoras */
         }
         .form-group {
             margin-bottom: 20px;
@@ -34,8 +39,8 @@
         }
         .form-group input[type="number"],
         .form-group button {
-            font-size: 24px; /* Ajuste o tamanho da fonte dos campos digitáveis e botões */
-            padding: 10px 20px; /* Ajuste o espaçamento interno dos campos digitáveis e botões */
+            font-size: 16px;
+            padding: 8px 16px;
         }
         .result {
             margin-top: 20px;
@@ -48,7 +53,7 @@
 </head>
 <body>
     <div class="container">
-        <h2>Calculadora de Valor de Copo ou Xícara</h2>
+        <h2 style="font-size: 24px;">Calculadora de Valor de Copo ou Xícara</h2>
         <div class="form-group">
             <label for="ml">Capacidade (ml):</label>
             <input type="number" id="ml" placeholder="Digite a capacidade em ml">
@@ -72,9 +77,28 @@
         <div class="result">
             <p id="valor">Valor: R$</p>
         </div>
+      
     </div>
+    <div class="container">
+        <h2 style="font-size: 24px;">Calculadora de Volume</h2> <br>
+        <div class="form-group">
+            <label for="altura">Altura (cm):</label>
+            <input type="number" id="altura" placeholder="Digite a altura em cm">
+        </div>
+        <div class="form-group">
+            <label for="largura">Largura (cm):</label>
+            <input type="number" id="largura" placeholder="Digite a largura em cm">
+        </div>
+        <div class="form-group">
+            <button onclick="calcularVolume()">Calcular Volume</button>
+        </div>
+        <div class="result">
+            <p id="resultado">O volume é de 0 ml.</p>
+        </div>
+    </div>
+
     <script>
-        // Calculadora de Valor de Peças de Cerâmica
+        // Calculadora de Valor de Copo ou Xícara
         function calcularValor() {
             var ml = parseInt(document.getElementById('ml').value);
             var alca = document.getElementById('alca').checked;
@@ -147,6 +171,19 @@
             document.getElementById('biscoito').checked = false;
             document.getElementById('valor').innerHTML = 'Valor: R$';
         }
+
+        // Calculadora de Volume
+        function calcularVolume() {
+            var altura = parseFloat(document.getElementById("altura").value);
+            var largura = parseFloat(document.getElementById("largura").value);
+
+            var larguraReal = largura - 2;
+            var raio = larguraReal / 2;
+            var volume = Math.PI * raio * raio * altura;
+
+            document.getElementById("resultado").innerHTML = "O volume é de " + volume.toFixed(2) + " ml.";
+        }
     </script>
 </body>
 </html>
+
