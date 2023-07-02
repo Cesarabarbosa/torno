@@ -9,24 +9,25 @@
         }
         body {
             font-family: Arial, sans-serif;
-            font-size: 16px;
+            font-size: 12px; /* Alterado para um tamanho de fonte menor */
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column; /* Alterado para alinhar verticalmente */
+            margin-top: 100px; /* Adicionada margem superior */
         }
         .container {
-            max-width: 400px;
-            padding: 20px;
+            max-width: 300px; /* Reduzido o tamanho máximo da largura */
+            padding: 10px; /* Reduzido o padding */
             text-align: center;
             border: 1px solid black;
             border-radius: 10px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px; /* Adicionado espaçamento entre as calculadoras */
+            margin-bottom: 0; /* Removida a margem inferior */
         }
         .form-group {
-            margin-bottom: 20px;
             text-align: left;
+            margin-bottom: 10px; /* Reduzido o espaçamento vertical */
         }
         .form-group label {
             display: block;
@@ -39,7 +40,7 @@
         }
         .form-group input[type="number"],
         .form-group button {
-            font-size: 16px;
+            font-size: 12px; /* Alterado para um tamanho de fonte menor */
             padding: 8px 16px;
         }
         .result {
@@ -50,8 +51,7 @@
             padding: 10px;
         }
     </style>
-</head>
-<body>
+
     <div class="container">
         <h2 style="font-size: 24px;">Calculadora de Valor de Copo ou Xícara</h2>
         <div class="form-group">
@@ -77,7 +77,6 @@
         <div class="result">
             <p id="valor">Valor: R$</p>
         </div>
-      
     </div>
     <div class="container">
         <h2 style="font-size: 24px;">Calculadora de Volume</h2> <br>
@@ -96,6 +95,19 @@
             <p id="resultado">O volume é de 0 ml.</p>
         </div>
     </div>
+
+    <script>
+        // ...
+    </script>
+</body>
+</html>
+
+    <script>
+        // ...
+    </script>
+</body>
+</html>
+
 
     <script>
         // Calculadora de Valor de Copo ou Xícara
@@ -177,7 +189,7 @@
             var altura = parseFloat(document.getElementById("altura").value);
             var largura = parseFloat(document.getElementById("largura").value);
 
-            var larguraReal = largura - 2;
+            var larguraReal = largura - 1;
             var raio = larguraReal / 2;
             var volume = Math.PI * raio * raio * altura;
 
